@@ -11,8 +11,8 @@ const Cv = () => {
             <h1 className="text-4xl font-bold mt-10 mb-10">Voir CV</h1>
             <iframe 
                 src="/CV (1) (1).pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                width="65%" 
-                height="400px" 
+                width="85%" 
+                height="500px" 
                 className="mb-5"
             >
                 Ce navigateur ne supporte pas l'affichage des PDFs.

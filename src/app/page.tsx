@@ -18,7 +18,7 @@ export default function Home() {
               Welcome to my portfolio! <br /> I’m a full-stack developer dedicated to creating innovative, <br /> scalable solutions by mastering new technologies and <br /> continuously refining my skills.
             </div>
             <div className="flex flex-row items-center  mt-7 ml-10 space-x-2">
-              <button className="border-2 border-green-500/45 rounded-lg p-2 hover:shadow-md hover:bg-blue-500/45"><Link rel="stylesheet" href="/cv" /> Download CV</button>
+              <button className="border-2 border-green-500/45 rounded-lg p-2 hover:shadow-md hover:bg-blue-500/45"><Link rel="stylesheet" href="/cv"> Download CV</Link></button>
               <button className="bg-green-500/25 rounded-lg p-2  hover:shadow-md hover:shadow-blue-500/75">Explore</button>
             </div>
           </div>
@@ -83,9 +83,9 @@ export default function Home() {
       <section className="flex justify-around gap-3 mb-8 ">
         <div className="block mt-20">
           <Image
-            src="/Moi.png"
+            src="/african-preview.png"
             alt="devfolio Logo"
-            width={350}
+            width={250}
             height={14}
             priority
             className='shadow-sm shadow-green-500/55'
