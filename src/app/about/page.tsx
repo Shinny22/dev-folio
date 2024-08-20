@@ -1,15 +1,18 @@
 import Image from 'next/image';
+import Footer from '../component/footer';
+import Nav from '../component/nav';
 
 export default function About(){
     return(
         <div>
-            <h1 className=" text-4xl font-bold justify-center mt-10">About Me</h1>
+            <Nav/>
+            <h1 className="flex text-4xl font-bold justify-center mt-10">About Me</h1>
             
             <div className="flex flex-row items-center justify-around m-10">
                 <Image
-                src="/african-fe.png"
+                src="/african2-removebg-preview.png"
                 alt="Nissi Oyere"
-                width={300}
+                width={1950}
                 height={250}
                 />
                 <div>
@@ -20,6 +23,7 @@ export default function About(){
               Driven by a commitment to continuous improvement and innovation, I am dedicated to mastering the latest technologies in cloud computing, artificial intelligence, and advanced data analysis. My focus is on leveraging these tools to develop scalable, cutting-edge applications that meet real-world challenges. Looking ahead, I am committed to creating pioneering solutions that seamlessly integrate advanced technology with user-centered design and meaningful data insights, contributing to projects that make a significant impact.  </div>
             </div>
             </div>
+            <Footer/>
         </div>
     )
 }

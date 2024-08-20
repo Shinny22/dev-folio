@@ -5,7 +5,7 @@ export default function Nav(){
    return (
     <>
 <header>
-<nav className="flex justify-around bg-blue-500/25 bg-blur-sm shadow-lg shadow-blue-500/45">
+<nav className="flex justify-around bg-blue-500/25 bg-blur-sm shadow-lg shadow-green-500/35">
      <Image
         src="/logo.png"
         alt="devfolio Logo"
