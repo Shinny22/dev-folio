@@ -37,7 +37,7 @@ export default function Home() {
                 width={300}
                 height={300}
                 priority
-                className='shadow-lg shadow-green-500/55 rounded-full border-4 border-green-500/25 hover:border-none hover:shadow-none transition duration-500 ease-out transform hover:-translate-y-1 hover:scale-110 opacity-70 hover:opacity-100'
+                className='shadow-lg shadow-green-500/55 rounded-full border-4 border-green-500/25 hover:border-none hover:shadow-none '
               />
             </div>
           </div>
