@@ -6,199 +6,131 @@ import Footer from "./component/footer";
 export default function Home() {
   return (
     <>
-
       <Nav />
-      <section className="flex min-h-screen flex-col items-center justify-between p-8 mb-15 mt-18 border-b-2 border-blue-500/25">
-        <div className=" w-full max-w-5xl items-center justify-around font-mono text-sm lg:flex gap-8">
-          <div className="block ">
-            <h1 className="text-4xl font-bold ">Hello,I'm<br></br> <span className="text-green-500/75"> Gloire Nissi OYERE</span></h1>
-            <p className="mb-8 ml-1">Full Stack Developer</p>
-            <div>
-
-              Welcome to my portfolio! <br /> I’m a full-stack developer dedicated to creating innovative, <br /> scalable solutions by mastering new technologies and <br /> continuously refining my skills.
+      <section className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 mb-8 sm:mb-15 border-b-2 border-blue-500/25">
+        <div className="w-full max-w-6xl mx-auto font-mono text-sm">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-12 lg:gap-16">
+            <div className="text-center md:text-left md:max-w-xl mt-10">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                Hello, I'm<br /> 
+                <span className="text-green-500/75">Gloire Nissi OYERE</span>
+              </h1>
+              <p className="mb-4 sm:mb-6 text-lg sm:text-xl text-gray-600">Full Stack Developer</p>
+              <div className="text-sm sm:text-base mb-6">
+                Welcome to my portfolio! <br /> 
+                I'm a full-stack developer dedicated to creating innovative, 
+                scalable solutions by mastering new technologies and 
+                continuously refining my skills.
+              </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start mt-7 space-y-2 sm:space-y-0 sm:space-x-4">
+                <Link href="/cv" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto border-2 border-green-500/45 rounded-lg px-6 py-2 hover:shadow-md hover:bg-green-500/45  transition duration-300">Download CV</button>
+                </Link>
+                <button className="w-full sm:w-auto bg-green-500/25 rounded-lg px-6 py-2 hover:shadow-md hover:bg-green-500/45  transition duration-300">Explore</button>
+        
+              </div>
             </div>
-            <div className="flex flex-row items-center  mt-7 ml-10 space-x-2">
-              <button className="border-2 border-green-500/45 rounded-lg p-2 hover:shadow-md hover:bg-blue-500/45"><Link rel="stylesheet" href="/cv"> Download CV</Link></button>
-              <button className="bg-green-500/25 rounded-lg p-2  hover:shadow-md hover:shadow-blue-500/75">Explore</button>
+            <div className="md:flex-shrink-0">
+              <Image
+                src="/AFRICAN3-removebg-preview.png"
+                alt="Gloire Nissi OYERE"
+                width={300}
+                height={300}
+                priority
+                className='shadow-lg shadow-green-500/55 rounded-full border-4 border-green-500/25 hover:border-none hover:shadow-none transition duration-500 ease-out transform hover:-translate-y-1 hover:scale-110 opacity-70 hover:opacity-100'
+              />
             </div>
-          </div>
-          <div className="block mt-3">
-            <Image
-              src="/AFRICAN3-removebg-preview.png"
-              alt="devfolio Logo"
-              width={230}
-              height={14}
-              priority
-              className='shadow-sm shadow-green-500/55 rounded-full border-2 border-green-500/25'
-            />
           </div>
         </div>
-
       </section>
-      <h1 className="text-2xl font-bold mb-4 text-center mt-10">My Skills</h1>
-      <div className="flex flex-row justify-around gap-4 items-center mt-20 mb-20">
-        <div className="bg-blue-500/45 rounded-md p-5 shadow-md shadow-green-500/95">
-          <Image
-            src="/Connected world-cuate.png"
-            alt="devfolio Logo"
-            width={150}
-            height={14}
-            priority
-          />
-          <h3>BackEnd</h3>
-        </div>
-        <div className=" bg-blue-500/45 rounded-md p-5 shadow-md shadow-green-500/95">
-          <Image
-            src="/Data points-cuate.png"
-            alt="devfolio Logo"
-            width={150}
-            height={14}
-            priority
-          />
-          <h3>FontEnd</h3>
-        </div>
-        <div className="bg-blue-500/45 rounded-md p-5 shadow-md shadow-green-500/95">
-          <Image
-            src="/Online world-amico.png"
-            alt="devfolio Logo"
-            width={150}
-            height={14}
-            priority
-          />
-          <h3>Database</h3>
-        </div>
 
-        <div className="bg-blue-500/45 rounded-md p-5 shadow-md shadow-green-500/95">
-          <Image
-            src="/Cloud hosting-amico.png"
-            alt="devfolio Logo"
-            width={150}
-            height={14}
-            priority
-          />
-          <h3>Project Management</h3>
-        </div>
+      <h1 className="text-2xl font-bold mb-4 text-center mt-10">My Skills</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10 mb-20">
+        {[
+          { src: "/Connected world-cuate.png", title: "BackEnd" },
+          { src: "/Data points-cuate.png", title: "FrontEnd" },
+          { src: "/Online world-amico.png", title: "Database" },
+          { src: "/Cloud hosting-amico.png", title: "Project Management" }
+        ].map((skill, index) => (
+          <div key={index} className="bg-blue-500/45 rounded-md p-5 shadow-md shadow-green-500/95 flex flex-col items-center">
+            <Image
+              src={skill.src}
+              alt={`${skill.title} icon`}
+              width={150}
+              height={150}
+              priority
+            />
+            <h3 className="mt-2 text-center">{skill.title}</h3>
+          </div>
+        ))}
       </div>
 
-      <section className="flex justify-around gap-3 mb-8 ">
-        <div className="block mt-20">
+      <section className="flex flex-col md:flex-row justify-around gap-8 mb-8 px-4">
+        <div className="mt-10 md:mt-20 flex justify-center">
           <Image
             src="/african-preview.png"
-            alt="devfolio Logo"
+            alt="About me image"
             width={250}
-            height={14}
+            height={250}
             priority
-            className='shadow-sm shadow-green-500/55'
+            className='shadow-sm shadow-green-500/55 rounded-lg '
           />
-
         </div>
-        <div className="block">
-          <h1 className="text-2xl mb-10 text-center">About me</h1>
-          <p className="block  text-justify ">
-            Développeur full stack déterminé, j'allie expertise technique et une <br></br>
-            passion constante pour l'apprentissage et le partage de connaissances.<br></br>
-            Mon parcours en développement front-end et back-end me permet <br></br>
-            de concevoir et de mettre en œuvre des solutions
-            complètes, <br></br>de l'interface utilisateur à la gestion des bases de données.
+        <div className="max-w-2xl">
+          <h1 className="text-2xl mb-6 text-center md:text-left">About me</h1>
+          <p className="text-justify">
+            As a dedicated full-stack developer, I combine technical expertise with a
+            constant passion for learning and sharing knowledge.
+            My journey in front-end and back-end development enables me
+            to design and implement comprehensive solutions,
+            from user interfaces to database management.
           </p>
-          <div className="flex flex-col justify-between space-x-20">
-            <h2 className="block text-justify text-xl font-thin  mt-5 mb-4">
-              Compétences Techniques
-            </h2>
-            <ul className="list-disc text-justify">
-              <li>Front-End : React,Next.js,Tailwind CSS,Typescript,Storybook, <br></br>HTML5, CSS3,Bootstrap</li>
-              <li>Back-End : Django, Django REST Framework,Flask,Node.js, Express</li>
-              <li>Bases de Données : Oracle, MySQL, Sqlite</li>
-              <li>Outils de Conteneurisation : Docker, Docker Compose</li>
-              <li>Gestion de Version : Git, GitHub</li>
-              <li>Autres Compétences : Cloud Computing (AWS), Kubernetes,<br></br>Trello(gestion de projet),..</li>
+          <div className="mt-6">
+            <h2 className="text-xl font-thin mb-4">Technical Skills</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Front-End : React, Next.js, Tailwind CSS, Typescript, Storybook, HTML5, CSS3, Bootstrap</li>
+              <li>Back-End : Django, Django REST Framework, Flask, Node.js, Express</li>
+              <li>Databases : Oracle, MySQL, Sqlite</li>
+              <li>Containerization Tools : Docker, Docker Compose</li>
+              <li>Version Control : Git, GitHub</li>
+              <li>Other Skills : Cloud Computing (AWS), Kubernetes, Trello (project management), ...</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <main className="flex  flex-col items-center justify-between p-10">
+      <main className="flex flex-col items-center justify-between p-4 sm:p-10">
         <h1 className="text-2xl font-bold mb-4">My Projects</h1>
-        <p className=" mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.Lo</p>
-        <div className="flex flex-row items-center justify-between space-x-20 mb-5">
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className=" mb-4">LingaFoot</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/home5fe.jpg"
-                alt="devfolio Logo"
-                width={310}
-                height={34}
-                priority
-              />
-            </Link>
-          </div>
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className=" mb-4">Visit Congo</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/Tourisme.png"
-                alt="devfolio Logo"
-                width={310}
-                height={24}
-                priority
-              />
-            </Link>
-          </div>
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className=" mb-4">Todo List</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/todo.jpeg"
-                alt="devfolio Logo"
-                width={310}
-                height={34}
-                priority
-              />
-            </Link>
-          </div>
+        <p className="mb-10 text-center">
+          Explore a selection of my key projects showcasing my skills in full-stack development, 
+          innovative problem-solving, and user-centered design. Each project represents a unique 
+          challenge and demonstrates my ability to deliver robust, scalable solutions.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: "LingaFoot", src: "/home5fe.jpg" },
+            { title: "Visit Congo", src: "/Tourisme.png" },
+            { title: "Todo List", src: "/todo.jpeg" },
+            { title: "Finexo", src: "/Finexo.jpeg" },
+            { title: "Immobigrand", src: "/Immo.jpeg" },
+            { title: "Connect", src: "/dashboard___31_4x.png" }
+          ].map((project, index) => (
+            <div key={index} className="card bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
+              <h1 className="mb-4 text-center">{project.title}</h1>
+              <Link href="https://lingafoot.com">
+                <Image
+                  src={project.src}
+                  alt={`${project.title} preview`}
+                  width={310}
+                  height={200}
+                  priority
+                  className="w-full h-auto"
+                />
+              </Link>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-row items-center justify-between space-x-20">
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className="mb-4">Finexo</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/Finexo.jpeg"
-                alt="devfolio Logo"
-                width={330}
-                height={24}
-                priority
-              />
-            </Link>
-          </div>
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className=" mb-4">Immobigrand</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/Immo.jpeg"
-                alt="devfolio Logo"
-                width={325}
-                height={25}
-                priority
-              />
-            </Link>
-          </div>
-          <div className="card mb-4 bg-blue-500/45 rounded-lg p-5 shadow-lg shadow-blue-500">
-            <h1 className=" mb-4">Connect</h1>
-            <Link href="https://lingafoot.com">
-              <Image
-                src="/dashboard___31_4x.png"
-                alt="devfolio Logo"
-                width={320}
-                height={24}
-                priority
-              />
-            </Link>
-          </div>
-        </div>
-
       </main>
-
 
       <Footer />
     </>

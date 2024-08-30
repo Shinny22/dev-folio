@@ -14,15 +14,15 @@ export default function Contact() {
                     alt="Nissi Oyere"
                     width={300}
                     height={100}
-                    className='shadow-lg shadow-green-700/55'
+                    className='shadow-lg shadow-green-700/55 rounded-full'
                 />
 
                 <div className="block items-center justify-center m-5 ">
-                    <form className='flex flex-col gap-5 items-center justify-center bg-blue-500/25  p-10 rounded-lg'>
+                    <form className='flex flex-col gap-5 items-center justify-center bg-white-900/75 border-2 border-blue-500 p-10 rounded-lg animate-slide '>
                         <h2 className='text-2xl font-bold text-center text-blue-700 '>Contact Me</h2>
-                        <input type="text" placeholder="Name" className='w-full border-2 hover:border-blue-500 rounded-md p-2' />
-                        <input type="email" placeholder="Email" className='w-full border-2 hover:border-blue-500 rounded-md p-2' />
-                        <textarea name="message" id="message" cols={30} rows={3} placeholder="Message" className='w-full border-2 hover:border-gray-500 rounded-md p-2'></textarea>
+                        <input type="text" placeholder="Name" className='w-full border-2 hover:border-blue-500 rounded-md p-2 focus:outline-blue-500/25 ' />
+                        <input type="email" placeholder="Email" className='w-full border-2 hover:border-blue-500 rounded-md p-2 focus:outline-blue-500/25' />
+                        <textarea name="message" id="message" cols={30} rows={3} placeholder="Message" className='w-full border-2 hover:border-gray-500 rounded-md p-2 focus:outline-blue-500/25'></textarea>
                         <div className='flex flex-row gap-3'>
                             <button type="submit" className='bg-blue-800 text-white p-2  hover:bg-blue-500 hover:text-white rounded-md'>Submit</button>
                             <button type="reset" className=' border-2 border-red-500/25 text-red-500/25 hover:text-red-500 hover:border-red-500 p-2 rounded-md'>Cancel</button>

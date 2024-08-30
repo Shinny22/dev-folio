@@ -1,30 +1,37 @@
 import React from 'react'
 import Nav from '../component/nav'
 import Footer from '../component/footer'
+import { FaDownload } from 'react-icons/fa'
 
-const Cv = () => {                  
+const Cv = () => {
     return (
-
         <>
-        <Nav/>
-        <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold mt-10 mb-10">Voir CV</h1>
-            <iframe 
-                src="/CV (1) (1).pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                width="85%" 
-                height="500px" 
-                className="mb-5"
-            >
-                Ce navigateur ne supporte pas l'affichage des PDFs.
-            </iframe>
-            <a href="/CV (1) (1).pdf" download className="mb-10">
-                <button className="border-2 border-green-500/45 rounded-lg p-2 hover:shadow-md hover:bg-blue-500/45">
-                    Télécharger le CV
-                </button>
-            </a>
-        </div>
-        <Footer/>
-
+            <Nav />
+            <div className="container mx-auto px-4 py-8">
+                <h1 className="text-4xl font-bold text-center mt-10 mb-10">Voir CV</h1>
+                <div className="bg-white shadow-xl rounded-lg overflow-hidden max-w-4xl mx-auto">
+                    <div className="relative" style={{ paddingTop: '141.4%' }}> {/* Ratio A4 */}
+                        <iframe 
+                            src="/CV (1) (1).pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&print-allow=0" 
+                            className="absolute top-0 left-0 w-full h-full"
+                            style={{ minHeight: '600px' }}
+                        >
+                            Ce navigateur ne supporte pas l'affichage des PDFs.
+                        </iframe>
+                    </div>
+                </div>
+                <div className="text-center mt-8">
+                    <a 
+                        href="/CV (1) (1).pdf" 
+                        download 
+                        className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out"
+                    >
+                        <FaDownload className="mr-2" />
+                        Télécharger le CV
+                    </a>
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }
