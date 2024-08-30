@@ -12,13 +12,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-12 lg:gap-16">
             <div className="text-center md:text-left md:max-w-xl mt-10">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
-                Hello, I'm<br /> 
+                Hello, I&apos;m<br /> 
                 <span className="text-green-500/75">Gloire Nissi OYERE</span>
               </h1>
               <p className="mb-4 sm:mb-6 text-lg sm:text-xl text-gray-600">Full Stack Developer</p>
               <div className="text-sm sm:text-base mb-6">
                 Welcome to my portfolio! <br /> 
-                I'm a full-stack developer dedicated to creating innovative, 
+                I&apos;m a full-stack developer dedicated to creating innovative, 
                 scalable solutions by mastering new technologies and 
                 continuously refining my skills.
               </div>

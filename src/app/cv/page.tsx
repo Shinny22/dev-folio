@@ -16,7 +16,7 @@ const Cv = () => {
                             className="absolute top-0 left-0 w-full h-full"
                             style={{ minHeight: '600px' }}
                         >
-                            Ce navigateur ne supporte pas l'affichage des PDFs.
+                            This browser does not support displaying PDFs.
                         </iframe>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const Cv = () => {
                         className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out"
                     >
                         <FaDownload className="mr-2" />
-                        Télécharger le CV
+                        Download the CV
                     </a>
                 </div>
             </div>
