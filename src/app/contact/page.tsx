@@ -1,37 +1,136 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 import Nav from '../component/nav';
 import Footer from '../component/footer';
 
 export default function Contact() {
-    return (
-        <div>
-            <Nav/>
-            <h1 className="flex text-4xl font-bold justify-center mt-10 mb-10">Contact me</h1>
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-            <div className="flex flex-row items-center justify-around m-10">
-                <Image
-                    src="/african-f-removebg-preview.png"
-                    alt="Nissi Oyere"
-                    width={300}
-                    height={100}
-                    className='shadow-lg shadow-green-700/55 rounded-full'
-                />
+  const [messageSent, setMessageSent] = useState(false);
 
-                <div className="block items-center justify-center m-5 ">
-                    <form className='flex flex-col gap-5 items-center justify-center bg-white-900/75 border-2 border-blue-500 p-10 rounded-lg animate-slide '>
-                        <h2 className='text-2xl font-bold text-center text-blue-700 '>Contact Me</h2>
-                        <input type="text" placeholder="Name" className='w-full border-2 hover:border-blue-500 rounded-md p-2 focus:outline-blue-500/25 ' />
-                        <input type="email" placeholder="Email" className='w-full border-2 hover:border-blue-500 rounded-md p-2 focus:outline-blue-500/25' />
-                        <textarea name="message" id="message" cols={30} rows={3} placeholder="Message" className='w-full border-2 hover:border-gray-500 rounded-md p-2 focus:outline-blue-500/25'></textarea>
-                        <div className='flex flex-row gap-3'>
-                            <button type="submit" className='bg-blue-800 text-white p-2  hover:bg-blue-500 hover:text-white rounded-md'>Submit</button>
-                            <button type="reset" className=' border-2 border-red-500/25 text-red-500/25 hover:text-red-500 hover:border-red-500 p-2 rounded-md'>Cancel</button>
-                        </div>
-                    </form>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-                </div>
-            </div>
-            <Footer/>
-        </div>
-    )
+  const hasSQLInjectionPattern = (text: string) => {
+    const pattern = /(\b(SELECT|UPDATE|DELETE|INSERT|DROP|ALTER|--|\*|;)\b)/i;
+    return pattern.test(text);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Trim inputs
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
+    // Basic SQL injection prevention (front-end)
+    if (
+      hasSQLInjectionPattern(trimmedName) ||
+      hasSQLInjectionPattern(trimmedEmail) ||
+      hasSQLInjectionPattern(trimmedMessage)
+    ) {
+      alert('🚫 Invalid input detected!');
+      return;
+    }
+
+    // Simuler l’envoi
+    console.log('Sending...', { trimmedName, trimmedEmail, trimmedMessage });
+    setMessageSent(true);
+
+    // Reset du formulaire
+    setFormData({ name: '', email: '', message: '' });
+
+    // Effacer le message après 4 sec
+    setTimeout(() => setMessageSent(false), 4000);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-50 via-white to-blue-50">
+      <Nav />
+
+      <h1 className="text-4xl font-bold text-center text-green-800 mt-12 mb-8">
+        Contact Me
+      </h1>
+
+      <div className="flex flex-col md:flex-row items-center justify-around gap-10 px-6 py-10">
+        {/* Image */}
+        <Image
+          src="/african-f-removebg-preview.png"
+          alt="Nissi Oyere"
+          width={280}
+          height={280}
+          className="shadow-2xl shadow-green-400 rounded-full"
+        />
+
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md bg-white/90 backdrop-blur-sm border border-blue-200 p-8 rounded-xl shadow-md"
+        >
+          <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">Send a Message</h2>
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-3 mb-4 focus:ring-2 focus:ring-green-400 focus:outline-none transition"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-3 mb-4 focus:ring-2 focus:ring-green-400 focus:outline-none transition"
+          />
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full border border-gray-300 rounded-md p-3 mb-6 focus:ring-2 focus:ring-green-400 focus:outline-none transition"
+          ></textarea>
+
+          <div className="flex justify-center gap-4">
+            <button
+              type="submit"
+              className="bg-green-700 text-white px-5 py-2 rounded-md hover:bg-green-600 transition-colors"
+            >
+              Submit
+            </button>
+            <button
+              type="reset"
+              onClick={() => setFormData({ name: '', email: '', message: '' })}
+              className="border border-red-300 text-red-400 hover:border-red-500 hover:text-red-600 px-5 py-2 rounded-md transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+
+          {messageSent && (
+            <p className="mt-6 text-green-700 text-center font-medium animate-fade-in">
+              ✅ Message sent successfully!
+            </p>
+          )}
+        </form>
+      </div>
+
+      <Footer />
+    </div>
+  );
 }

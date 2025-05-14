@@ -7,30 +7,37 @@ const Cv = () => {
     return (
         <>
             <Nav />
-            <div className="container mx-auto px-4 py-8">
-                <h1 className="text-4xl font-bold text-center mt-10 mb-10">Voir CV</h1>
-                <div className="bg-white shadow-xl rounded-lg overflow-hidden max-w-4xl mx-auto">
-                    <div className="relative" style={{ paddingTop: '141.4%' }}> {/* Ratio A4 */}
-                        <iframe 
-                            src="/CV (1) (1).pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&print-allow=0" 
-                            className="absolute top-0 left-0 w-full h-full"
-                            style={{ minHeight: '600px' }}
+            <section className="flex flex-col min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-100">
+                <div className="container mx-auto px-4 py-12">
+                    <h1 className="text-4xl sm:text-5xl font-bold text-center text-blue-800 mb-10">
+                        My CV
+                    </h1>
+
+                    <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-lg border border-gray-200 shadow-2xl rounded-2xl overflow-hidden transition duration-300">
+                        <div className="relative" style={{ paddingTop: '141.4%' }}>
+                            <iframe
+                                src="/CV_Nissi_OYERE.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                className="absolute top-0 left-0 w-full h-full"
+                                style={{ minHeight: '600px' }}
+                            >
+                                Your browser does not support PDFs. 
+                                <a href="/CV_Nissi_OYERE.pdf" className="text-blue-600 underline">Download it here</a>.
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div className="text-center mt-10">
+                        <a
+                            href="/CV_Nissi_OYERE.pdf"
+                            download
+                            className="inline-flex items-center gap-3 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
                         >
-                            This browser does not support displaying PDFs.
-                        </iframe>
+                            <FaDownload className="text-lg animate-bounce" />
+                            Download my CV
+                        </a>
                     </div>
                 </div>
-                <div className="text-center mt-8">
-                    <a 
-                        href="/CV (1) (1).pdf" 
-                        download 
-                        className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out"
-                    >
-                        <FaDownload className="mr-2" />
-                        Download the CV
-                    </a>
-                </div>
-            </div>
+            </section>
             <Footer />
         </>
     )
